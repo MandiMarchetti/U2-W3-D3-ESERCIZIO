@@ -355,7 +355,7 @@ const bookList = document.getElementById("booklist"); //Div row to organize the 
 
 storageBookList.forEach((element) => {
   const bookCard = document.createElement("div");
-  bookCard.className = "col";
+  bookCard.className = "col-sm-6 col-md-4 col-lg-2";
   bookList.appendChild(bookCard);
 
   const newCard = document.createElement("div");
