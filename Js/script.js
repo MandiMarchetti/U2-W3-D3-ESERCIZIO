@@ -1,11 +1,11 @@
-const bookList = [
+const storageBookList = [
   {
     asin: "1940026091",
     title: "Pandemic (The Extinction Files, Book 1)",
     img: "https://images-na.ssl-images-amazon.com/images/I/91xrEMcvmQL.jpg",
     price: 7.81,
     category: "scifi",
-  },
+  }, //console.log(storageBookList[0].title)
   {
     asin: "0425264041",
     title: "Shards of Hope (Psy-Changeling Novel, A)",
@@ -350,3 +350,75 @@ const bookList = [
     category: "scifi",
   },
 ];
+
+const bookList = document.getElementById("booklist"); //Div row to organize the list
+
+storageBookList.forEach((element) => {
+  const bookCard = document.createElement("div");
+  bookCard.className = "col";
+  bookList.appendChild(bookCard);
+
+  const newCard = document.createElement("div");
+  newCard.className = "card";
+  bookCard.appendChild(newCard);
+
+  const newCardImg = document.createElement("img");
+  newCardImg.className = "card-img-top";
+  newCard.appendChild(newCardImg);
+  newCardImg.src = element.img;
+
+  const newCardBody = document.createElement("div");
+  newCardBody.className = "card-body"; // corrected typo here
+  newCard.appendChild(newCardBody);
+
+  const newCardTitle = document.createElement("h6");
+  newCardTitle.className = "card-title";
+  newCardBody.appendChild(newCardTitle);
+  newCardTitle.textContent = element.title;
+
+  const newCardPrice = document.createElement("p");
+  newCardBody.appendChild(newCardPrice);
+  newCardPrice.textContent = element.price;
+
+  const newCardButton = document.createElement("a");
+  newCardButton.textContent = "Scarta";
+  newCardButton.className = "btn btn-primary";
+  newCardButton.href = "#"; // set href attribute directly
+  newCardBody.appendChild(newCardButton);
+});
+
+//creating a new div col - to push inside the const bookList
+// const bookCard = document.createElement("div");
+// bookCard.className = "col";
+// bookList.appendChild(bookCard);
+
+//creating a new card to push inside the const bookCard
+// const newCard = document.createElement("div");
+// newCard.className = "card";
+// bookCard.appendChild(newCard);
+
+//creating a new image to push inside the newCard
+// const newCardImg = document.createElement("img");
+// newCardImg.className = "card-img-top";
+// newCard.appendChild(newCardImg);
+
+//creating a new div for the card body, to push inside the newCard
+// const newCardBody = document.createElement("div");
+// newCardBody.className = "card-body"; // corrected typo here
+// newCard.appendChild(newCardBody);
+
+//creating a new h6 for the card title, to push inside the newCardBody
+// const newCardTitle = document.createElement("h6");
+// newCardTitle.className = "card-title";
+// newCardBody.appendChild(newCardTitle);
+
+//creating a new p for the price, to push inside the newCardBody
+// const newCardPrice = document.createElement("p");
+// newCardBody.appendChild(newCardPrice);
+
+//creating a new a for the button, to push inside the newCardBody
+const newCardButton = document.createElement("a");
+newCardButton.textContent = "Scarta";
+newCardButton.className = "btn btn-primary";
+newCardButton.href = "#"; // set href attribute directly
+newCardBody.appendChild(newCardButton);
