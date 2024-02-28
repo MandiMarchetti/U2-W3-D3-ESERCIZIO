@@ -355,6 +355,7 @@ const bookList = document.getElementById("booklist"); //Div row to organize the 
 
 storageBookList.forEach((element) => {
   const bookCard = document.createElement("div");
+  bookCard.id = element.asin;
   bookCard.className = "col-sm-6 col-md-4 col-lg-2";
   bookList.appendChild(bookCard);
 
@@ -378,14 +379,24 @@ storageBookList.forEach((element) => {
 
   const newCardPrice = document.createElement("p");
   newCardBody.appendChild(newCardPrice);
-  newCardPrice.textContent = element.price;
+  newCardPrice.textContent = "$" + element.price;
 
-  const newCardButton = document.createElement("a");
+  const newCardButton = document.createElement("button");
   newCardButton.textContent = "Scarta";
-  newCardButton.className = "btn btn-primary";
-  newCardButton.href = "#"; // set href attribute directly
+  newCardButton.className = "btn btn-warning";
   newCardBody.appendChild(newCardButton);
+
+  newCardButton.addEventListener("click", function () {
+    document.getElementById(element.asin).style.display = "none";
+  });
+
+  const newCardButtonBuy = document.createElement("button");
+  newCardButtonBuy.textContent = "Compra ora";
+  newCardButtonBuy.className = "btn btn-success ";
+  newCardBody.appendChild(newCardButtonBuy);
 });
+
+function deleteButton(e) {}
 
 //creating a new div col - to push inside the const bookList
 // const bookCard = document.createElement("div");
@@ -417,8 +428,8 @@ storageBookList.forEach((element) => {
 // newCardBody.appendChild(newCardPrice);
 
 //creating a new a for the button, to push inside the newCardBody
-const newCardButton = document.createElement("a");
-newCardButton.textContent = "Scarta";
-newCardButton.className = "btn btn-primary";
-newCardButton.href = "#"; // set href attribute directly
-newCardBody.appendChild(newCardButton);
+// const newCardButton = document.createElement("a");
+// newCardButton.textContent = "Scarta";
+// newCardButton.className = "btn btn-primary";
+// newCardButton.href = "#"; // set href attribute directly
+// newCardBody.appendChild(newCardButton);
